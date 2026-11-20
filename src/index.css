@@ -1,0 +1,104 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-serif: "Playfair Display", Georgia, serif;
+    --font-sans: "Inter", "Noto Sans Kannada", system-ui, -apple-system, sans-serif;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    scroll-padding-top: 4.5rem;
+    overflow-x: clip;
+  }
+
+  body {
+    font-size: 1rem;
+    line-height: 1.6;
+    overflow-x: clip;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: "Playfair Display", "Noto Sans Kannada", Georgia, serif;
+  }
+
+  button, a, select, input, textarea {
+    touch-action: manipulation;
+  }
+}
+
+.font-serif-display {
+  font-family: "Playfair Display", "Noto Sans Kannada", Georgia, serif;
+}
+
+.font-body {
+  font-family: "Inter", "Noto Sans Kannada", system-ui, sans-serif;
+}
+
+/* Hide scrollbars cleanly on horizontal mobile scroll strips */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hover-only lift for pointer devices; touch devices use :active feedback */
+.card-interactive {
+  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.card-interactive:active {
+  transform: scale(0.985);
+}
+
+@media (hover: hover) {
+  .card-interactive:hover {
+    transform: translateY(-3px);
+  }
+}
+
+.tap-press {
+  transition: transform 120ms cubic-bezier(0.16, 1, 0.3, 1), background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+}
+
+.tap-press:active {
+  transform: scale(0.97);
+}
+
+/* Print-friendly styles for NAAC, NIRF, and RTI document pages */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+  }
+
+  header,
+  footer,
+  nav,
+  aside,
+  .no-print {
+    display: none !important;
+  }
+
+  main {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  a {
+    color: #111111 !important;
+    text-decoration: underline !important;
+  }
+
+  .print-container {
+    border: none !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+  }
+}
